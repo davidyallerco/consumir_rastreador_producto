@@ -26,7 +26,7 @@ public class ElementoServiceImpl implements ElementoService {
 	
 	private Flux<Elemento> catalogo(String url, String tienda){
 		WebClient webClient = WebClient.create(url);
-		webClient
+		return webClient
 		.get()
 		.uri("/productos")
 		.accept(MediaType.APPLICATION_JSON)

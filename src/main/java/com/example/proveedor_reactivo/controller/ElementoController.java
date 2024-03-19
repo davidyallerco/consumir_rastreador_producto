@@ -18,7 +18,12 @@ public class ElementoController {
 	@Autowired
 	ElementoService elementoService;
 	
-	@GetMapping(value="elementos/precio")
+	
+	//GET http://localhost:8043/elementos/2
+	//header:
+	//Accept : text/event-stream
+	//obtiene informacion de los dos ms producto1 y producto2
+	@GetMapping(value="elementos/{precio}")
 	public ResponseEntity<Flux<Elemento>> elementoPrecio(@PathVariable("precio") double precioMax){
 		return new ResponseEntity<>(elementoService.elementoPrecioMax(precioMax),HttpStatus.OK);
 	}
